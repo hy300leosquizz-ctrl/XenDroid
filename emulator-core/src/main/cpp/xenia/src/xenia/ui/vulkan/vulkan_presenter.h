@@ -252,6 +252,7 @@ class VulkanPresenter final : public Presenter {
     kGuestOutputPaintPipelineLayoutIndexCasResample,
     kGuestOutputPaintPipelineLayoutIndexFsrEasu,
     kGuestOutputPaintPipelineLayoutIndexFsrRcas,
+    kGuestOutputPaintPipelineLayoutIndexSgsr,
 
     kGuestOutputPaintPipelineLayoutCount,
   };
@@ -273,6 +274,9 @@ class VulkanPresenter final : public Presenter {
       case GuestOutputPaintEffect::kFsrRcas:
       case GuestOutputPaintEffect::kFsrRcasDither:
         return kGuestOutputPaintPipelineLayoutIndexFsrRcas;
+      case GuestOutputPaintEffect::kSgsr:
+      case GuestOutputPaintEffect::kSgsrEdgeDirection:
+        return kGuestOutputPaintPipelineLayoutIndexSgsr;
       default:
         assert_unhandled_case(effect);
         return kGuestOutputPaintPipelineLayoutCount;
